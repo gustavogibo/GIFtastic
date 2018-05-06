@@ -22,3 +22,8 @@ header label {
 .gif-buttons button {
     margin-bottom: 5px;
 }
+
+.box-gifs {
+    background: #ba3616;
+    padding: 25px 0px;
+}
