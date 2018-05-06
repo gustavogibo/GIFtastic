@@ -19,8 +19,8 @@ header label {
     padding: 25px 0px;
 }
 
-.gif-buttons button {
-    margin-bottom: 5px;
+.gif-buttons .btn-generate-gifs {
+    margin: 10px;
 }
 
 .box-gifs {
