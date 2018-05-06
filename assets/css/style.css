@@ -15,3 +15,10 @@ header h1 {
 header label {
     font-size: 2rem;
 }
+.gif-buttons {
+    padding: 25px 0px;
+}
+
+.gif-buttons button {
+    margin-bottom: 5px;
+}
