@@ -70,7 +70,7 @@ $(document).ready(function() {
                 imgGif.attr("data-status", "still");
         
                 var ratingGifDiv = $("<div>");
-                ratingGifDiv.addClass("card-body");
+                ratingGifDiv.addClass("card-body text-center");
         
                 var ratingGif = $("<p>");
                 ratingGif.text("Rating: "+results[i].rating);
@@ -84,23 +84,10 @@ $(document).ready(function() {
         
                 $(".gifs-here").prepend(termDiv);
         
-        
-              // Step 3: uncomment the for loop above and the closing curly bracket below.
-              // Make a div with jQuery and store it in a variable named animalDiv.
-              // Make a paragraph tag with jQuery and store it in a variable named p.
-              // Set the inner text of the paragraph to the rating of the image in results[i].
-              // Make an image tag with jQuery and store it in a variable named animalImage.
-              // Set the image's src to results[i]'s fixed_height.url.
-              // Append the p variable to the animalDiv variable.
-              // Append the animalImage variable to the animalDiv variable.
-              // Prepend the animalDiv variable to the element with an id of gifs-appear-here.
-        
-              // ============= put step 3 in between these dashes ======================
-        
-              // ==================================
               }
         
             });
+
         });
     }
 
@@ -120,6 +107,29 @@ $(document).ready(function() {
     });
 
     renderButtons();
+
+    $(document).on("click", ".card-img-top", function() {
+
+      var img = $(this);
+      // CODE GOES HERE
+      var state = $(this).attr("data-status");
+  
+      if(state === "still") {
+  
+          var dataAnimate = $(this).attr("data-moving");
+  
+          $(this).attr("src", dataAnimate);
+          $(this).attr("data-status", "animate");
+  
+        } else {
+  
+          $(this).attr("src", $(this).attr("data-still"))
+          $(this).attr("data-status", "still");
+  
+        }
+  
+  
+    });
 
 });
 
