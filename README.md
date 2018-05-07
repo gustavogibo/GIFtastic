@@ -4,13 +4,6 @@
 
 Need to look for a specific GIF? Use this website as your GIF source!
 
-# Installing
-
-* Download the ZIP file
-* Extract all the files
-* Open index.html
-* Use one of the pre-made gif buttons to generate GIFS or create your own button and go for it!
-
 # Technologies
 
 * HTML5
