@@ -91,6 +91,16 @@ $(document).ready(function() {
         });
     }
 
+    $(document).bind('keypress', function(event) {
+        if(event.keyCode==13){
+          event.preventDefault();
+            $('#add-gif-button').trigger('click');
+
+            console.log(gifButtonList);
+        }
+    });
+
+
     $("#add-gif-button").on("click", function(event) {
         event.preventDefault();
 
