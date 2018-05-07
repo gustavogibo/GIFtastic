@@ -13,7 +13,6 @@ $(document).ready(function() {
         for (var i = 0; i < gifButtonList.length; i++) {
 
         // Then dynamicaly generating buttons for each movie in the array
-        // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var a = $("<button>");
         // Adding a class
         a.addClass("btn-generate-gifs btn btn-lg btn-warning");
@@ -27,32 +26,27 @@ $(document).ready(function() {
         // console.log(a);
         }
 
+        // Creating the event that will communicate with Giphy API to bring Gifs results based on the
+        // search term
         $(".btn-generate-gifs").on("click", function() {
             
+            //removing all the previous gifs
             $(".gifs-here").empty();
 
+            // getting the term from the button and the API URL and combining both
             var term = $(this).attr("data-term");
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
               term + "&api_key=dc6zaTOxFJmzC&limit=10";
         
+            //making the AJAX request
             $.ajax({
               url: queryURL,
               method: "GET"
             }).then(function(response) {
-              // Step 1: Run this file, click a button, and see what the response object looks like in the browser's console.
-              // Open up the data key, then open up the 0th, element. Study the keys and how the JSON is structured.
-        
-              // console.log(response);
-        
-              // Step 2: since the image information is inside of the data key,
-              // make a variable named results and set it equal to response.data
+              
               var results = response.data;
-            //   console.log(results);
-        
-              // =============== put step 2 in between these dashes ==================
-        
-              // ========================
-        
+            
+              // making a for loop to display all the gifs
               for (var i = 0; i < results.length; i++) {
         
                 var termDiv = $("<div>");
@@ -91,16 +85,18 @@ $(document).ready(function() {
         });
     }
 
+    // Whenever the user type the theme on the textbox to create a buttom, he can press
+    // the "Enter" key instead and it will act like he clicked at the generate button gif.
     $(document).bind('keypress', function(event) {
         if(event.keyCode==13){
           event.preventDefault();
             $('#add-gif-button').trigger('click');
 
-            console.log(gifButtonList);
         }
     });
 
-
+    // Event that will add the term typed on the textbox to be inside of the array gifButtonList
+    // and eventually will call the function renderButtons
     $("#add-gif-button").on("click", function(event) {
         event.preventDefault();
 
@@ -118,10 +114,11 @@ $(document).ready(function() {
 
     renderButtons();
 
+    //Event that will trigger the gif to be either still or animated
     $(document).on("click", ".card-img-top", function() {
 
       var img = $(this);
-      // CODE GOES HERE
+
       var state = $(this).attr("data-status");
   
       if(state === "still") {
