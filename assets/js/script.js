@@ -31,7 +31,7 @@ $(document).ready(function() {
         $(".btn-generate-gifs").on("click", function() {
             
             //removing all the previous gifs
-            $(".gifs-here").empty();
+            // $(".gifs-here").empty();
 
             // getting the term from the button and the API URL and combining both
             var term = $(this).attr("data-term");
